@@ -4,5 +4,5 @@ metadata:
   name: hello-world
 spec:
   containers:
-  - image: kaizenacademy/hello-world:1.0
+  - image: aliiaabd/hello-world:1.0
     name: hello-world
