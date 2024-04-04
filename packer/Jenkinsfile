@@ -1,4 +1,4 @@
- template = '''
+template = '''
 apiVersion: v1
 kind: Pod
 metadata:
@@ -18,21 +18,17 @@ spec:
 
     def kaizen = env.BUILD_NUMBER
 
-    properties([
-        parameters([
-            choice(choices: ['stage', 'dev', 'qa', 'prod'], description: 'pick env', name: 'region')
-            ])
-            ])
 
-     if (params.region == "stage"){
+
+     if (env.BRANCH_NAME == "main"){
         hello = "us-east-1"
             }
 
-     else if (params.region == "dev"){
+     else if (env.BRANCH_NAME == "dev"){
         hello = "us-east-2"
             }
 
-     else if (params.region == "qa"){
+     else if (env.BRANCH_NAME == "qa"){
         hello = "us-west-1"
             }
      else {
@@ -64,4 +60,3 @@ spec:
  }
     }
     }
-    
